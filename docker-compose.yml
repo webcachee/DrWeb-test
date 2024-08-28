@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=app
+      - FLASK_ENV=production
+    command: /entrypoint.sh
+    container_name: flask-app
