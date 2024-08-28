@@ -33,6 +33,9 @@ def temp_file() -> tempfile.NamedTemporaryFile:
 
 
 def test_upload_file(client: FlaskClient, temp_file: tempfile.NamedTemporaryFile):
+    """
+    Test file upload functionality by sending a file and verifying the response.
+    """
     temp_file.write(b"test content")
     temp_file.seek(0)
 
@@ -50,6 +53,9 @@ def test_upload_file(client: FlaskClient, temp_file: tempfile.NamedTemporaryFile
 def test_download_file(
     client: FlaskClient, app: Flask, temp_file: tempfile.NamedTemporaryFile
 ):
+    """
+    Test file download functionality by checking if a stored file can be retrieved correctly.
+    """
     file_hash = "d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2"
     file_record = File(file_hash=file_hash, filename="testfile.txt", username="user1")
 
@@ -71,6 +77,9 @@ def test_download_file(
 def test_delete_file(
     client: FlaskClient, app: Flask, temp_file: tempfile.NamedTemporaryFile
 ):
+    """
+    Test file deletion functionality by checking if a file can be removed and no longer exists.
+    """
     file_hash = "d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2"
     file_record = File(file_hash=file_hash, filename="testfile.txt", username="user1")
 
