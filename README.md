@@ -76,7 +76,12 @@ store/ab/abcdef12345...
 
 ### Используя Docker:
 
-1. Выполните команду:
+1. Клонируйте репозиторий:
+```bash
+$ git clone https://github.com/webcachee/DrWeb-test.git 
+```
+
+2. Выполните команду:
 ```bash
 $ make app
 ```
@@ -103,7 +108,7 @@ $ poetry shell
 $  source entrypoint.sh
 ```
 
-### Реализованные команды
+### Реализованные make команды
 
 - `make app` - запуск контейнера приложения
 - `make app-logs` - просмотр логов в контейнере приложения
