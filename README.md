@@ -22,7 +22,7 @@
 
 ## Функционал
 
-### Upload
+### Upload (POST)
 
 1. Авторизованный пользователь загружает файл.
 2. Файл сохраняется на диск в структуре каталогов:
@@ -33,12 +33,12 @@ store/ab/abcdef12345...
 
 Алгоритм хэширования - **sha256**.
 
-### Delete
+### Delete (DELETE)
 
 1. Авторизованный пользователь передает хэш файла, который необходимо удалить.
 2. Если по хэшу файл удалось найти в локальном хранилище и файл принадлежит пользователю, то файл удаляется.
 
-### Download
+### Download (GET)
 
 1. Любой пользователь передает параметр — хэш файла.
 2. Если по хэшу файл удалось найти в локальном хранилище, файл возвращается пользователю.
@@ -50,24 +50,23 @@ store/ab/abcdef12345...
 ## API
 
 ### Upload
-
 - **Endpoint**: /upload
 - **Method**: POST
 - **Headers**:
-  **Authorization**: Basic Auth
+    - Authorization: Basic Auth
 - **Body**: Файл в формате multipart/form-data
 - **Response**: JSON объект с полем hash (хэш загруженного файла)
 
 ### Delete
-- **Endpoint**: /delete
+- **Endpoint**: /delete/{file_hash}
 - **Method**: POST
 - **Headers**:
     - Authorization: Basic Auth
-- **Body**: JSON объект с полем hash (хэш файла для удаления)
+- **Query Params**: hash (хэш файла)
 - **Response**: JSON объект с полем status (успех/неудача)
 
 ### Download
-- **Endpoint**: /download
+- **Endpoint**: /download/{file_hash}
 - **Method**: GET
 - **Query Params**: hash (хэш файла)
 - **Response**: Файл, если найден в хранилище
