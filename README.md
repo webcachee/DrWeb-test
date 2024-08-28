@@ -8,6 +8,7 @@
 
 Технологии, используемые в проекте:
 
+- python 3.11.6
 - Flask
 - SQLAlchemy
 - SQLite
@@ -59,7 +60,7 @@ store/ab/abcdef12345...
 - **Endpoint**: /delete
 - **Method**: POST
 - **Headers**:
-    - Authorization**: Basic Auth
+    - Authorization: Basic Auth
 - **Body**: JSON объект с полем hash (хэш файла для удаления)
 - **Response**: JSON объект с полем status (успех/неудача)
 
